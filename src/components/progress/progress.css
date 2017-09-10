@@ -1,0 +1,8 @@
+.myProgress.ui.progress {
+  background: #08090a;
+  margin-top: 1.8em;
+}
+
+.myProgress .bar {
+  background-color: #daddde;
+}

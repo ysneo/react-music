@@ -17,7 +17,8 @@ class App extends Component {
         special: 'Ego',
         name: 'Look At Me Now'
       },
-      progress: 10
+      progress: 10,
+      isPlaying: true
     }
   }
   render() {
@@ -30,7 +31,7 @@ class App extends Component {
             <Personal />
           </div>
           <MyProgress percent={this.state.progress} />
-          <Controls />
+          <Controls status={this.state.isPlaying} />
         </div>
       </div>
     )

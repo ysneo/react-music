@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { Progress } from 'semantic-ui-react'
-
+import './progress.css'
 class MyProgress extends Component {
   render() {
-    return <Progress percent={this.props.percent} size="tiny" color="orange" active />
+    return <Progress className="myProgress" percent={this.props.percent} size="tiny" active />
   }
 }
 

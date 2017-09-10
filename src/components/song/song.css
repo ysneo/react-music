@@ -1,0 +1,19 @@
+.song_author {
+  font-size: 16px;
+  margin: 0;
+  color: #3a4046;
+}
+
+.song_special {
+  font-size: 13px;
+  margin-top: -1px;
+  margin-bottom: 8px;
+  color: #3a4046;
+}
+
+.song_name {
+  font-size: 12px;
+  font-weight: 100;
+  color: #6f7a87;
+  font-family: Lato;
+}

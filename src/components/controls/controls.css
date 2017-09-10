@@ -1,0 +1,25 @@
+i.icon.main_control {
+  font-size: 3.3rem;
+}
+.controls {
+  display: flex;
+  justify-content: space-between;
+}
+.main-control-box {
+  display: flex;
+  margin-left: -8px;
+}
+i.icon.retweet,
+i.icon.random {
+  font-size: 16px;
+  margin-left: 4px;
+}
+i.icon.retweet {
+  font-size: 18px;
+}
+
+i.icon.backward,
+i.icon.forward {
+  font-size: 18px;
+  margin-right: 5px;
+}
