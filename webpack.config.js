@@ -30,7 +30,8 @@ const config = {
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader']
-      }
+      },
+      { test: /\.(mp3|svg|png|jpg|ttf|woff|woff2|eot)$/, use: ['file-loader'] }
     ]
   },
   plugins: [
