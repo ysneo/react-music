@@ -6,3 +6,6 @@
 .myProgress .bar {
   background-color: #daddde;
 }
+.myProgress.ui.active.progress .bar {
+  min-width: 0;
+}

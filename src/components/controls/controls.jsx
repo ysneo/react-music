@@ -12,7 +12,12 @@ class Controls extends Component {
     return <Icon onClick={this.props.onMainControl} className="main_control" name="video play" />
   }
 
+  get loopValue() {
+    return this.props.isLoop
+  }
+
   render() {
+    // const { isLoop } = this.props.isLoop
     return (
       <div className="controls">
         <div className="main-control-box">
@@ -21,7 +26,12 @@ class Controls extends Component {
           <Icon name="forward" />
         </div>
         <div>
-          <Icon name="retweet" disabled={true} />
+          <Icon
+            name="retweet"
+            onClick={this.props.onSetLoop}
+            disabled={!this.loopValue}
+            className={this.loopValue ? 'active' : null}
+          />
           <Icon name="random" disabled={true} />
         </div>
       </div>

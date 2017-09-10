@@ -17,6 +17,9 @@ i.icon.random {
 i.icon.retweet {
   font-size: 18px;
 }
+i.icon.retweet.active {
+  color: #3a4046;
+}
 
 i.icon.backward,
 i.icon.forward {

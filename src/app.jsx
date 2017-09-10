@@ -20,12 +20,13 @@ class App extends Component {
         special: 'Ego',
         name: 'Look At Me Now'
       },
-      progress: 10,
-      isPlaying: true
+      progress: 0,
+      isPlaying: true,
+      isLoop: false
     }
   }
 
-  prepareAudio = audio => {
+  prepareAudioEvent = audio => {
     const app = this
     this.setState({
       audio
@@ -33,10 +34,48 @@ class App extends Component {
     audio.addEventListener('canplay', function() {
       if (this.readyState >= 2) {
         audio.play()
+        audio.loop = false
         app.setState({
           isPlaying: true
         })
       }
+    })
+    // audio.addEventListener('progress', function() {
+    //   console.log('progress')
+    // })
+
+    // audio.addEventListener('play', function() {
+    //   console.log('playing')
+    // })
+
+    // audio.addEventListener('playing', function() {
+    //   app.activeProgress()
+    // })
+
+    audio.addEventListener('timeupdate', function() {
+      app.activeProgress()
+    })
+
+    audio.addEventListener('ended', function() {
+      if (app.state.isLoop) {
+        this.currentTime = 0
+        this.play()
+      } else {
+        this.pause()
+        app.setState({
+          isPlaying: false
+        })
+      }
+    })
+  }
+
+  activeProgress = () => {
+    const $audio = document.getElementById('audio')
+    const total = $audio.duration
+    const curTime = $audio.currentTime
+
+    this.setState({
+      progress: Math.floor(curTime / total * 100)
     })
   }
 
@@ -52,6 +91,12 @@ class App extends Component {
     })
   }
 
+  setLoop = () => {
+    this.setState({
+      isLoop: !this.state.isLoop
+    })
+  }
+
   render() {
     return (
       <div>
@@ -62,9 +107,14 @@ class App extends Component {
             <Personal />
           </div>
           <MyProgress percent={this.state.progress} />
-          <Controls onMainControl={this.onMainControl} status={this.state.isPlaying} />
+          <Controls
+            onMainControl={this.onMainControl}
+            status={this.state.isPlaying}
+            onSetLoop={this.setLoop}
+            isLoop={this.state.isLoop}
+          />
         </div>
-        <audio id="audio" src={mp3} ref={this.prepareAudio}>
+        <audio id="audio" src={mp3} ref={this.prepareAudioEvent}>
           not support
         </audio>
       </div>
