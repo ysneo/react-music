@@ -1,0 +1,10 @@
+.avatar-box {
+  background-image: url(http://p4.music.126.net/kjFVkzzt6BzB9EXr0qB1zA==/2576155743910424.jpg?param=130y130);
+  width: 100%;
+  height: 100px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: center;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}

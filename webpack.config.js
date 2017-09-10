@@ -7,9 +7,10 @@ const config = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: '/'
   },
-  devtool: 'inline-source-map',
+  devtool: 'eval',
   devServer: {
     // contentBase: './dist',
     compress: true,
@@ -24,7 +25,8 @@ const config = {
         include: path.resolve(__dirname, 'src'),
         loader: 'babel-loader',
         query: {
-          presets: ['es2015', 'react']
+          presets: ['es2015', 'react'],
+          plugins: ['react-hot-loader/babel']
         }
       },
       {
