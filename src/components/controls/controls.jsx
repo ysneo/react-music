@@ -5,9 +5,11 @@ import './controls.css'
 class Controls extends Component {
   playControl() {
     if (this.props.status) {
-      return <Icon className="main_control" name="pause circle" />
+      return (
+        <Icon onClick={this.props.onMainControl} className="main_control" name="pause circle" />
+      )
     }
-    return <Icon className="main_control" name="video play" />
+    return <Icon onClick={this.props.onMainControl} className="main_control" name="video play" />
   }
 
   render() {
